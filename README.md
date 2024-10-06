@@ -1,5 +1,6 @@
 Proof of SQL Bounty Program
 
+![Proof of SQL](https://www.chainbits.com/content/uploads/2024/06/ProofofSQL_1718198665IHUpvVEnKO-1-1024x614.jpg)
 
 Welcome to the Proof of SQL Bounty Program! This bounty is designed to improve the performance, efficiency, and overall security of the Proof of SQL repository. We are inviting the community to identify any issues, optimize queries, or suggest improvements that will help enhance the project. Participants who successfully find and report bugs or performance improvements may be eligible for rewards.
 
@@ -25,7 +26,8 @@ Fork the Repository: Start by forking the main Proof of SQL Bounty repository to
 Clone Your Fork Locally: Clone the forked repository to your local machine for analysis.
 
 ````
-git clone https://github.com/YOUR_USERNAME/ProofofSQLBounty.git
+git clone https://github.com/spaceandtimelabs/sxt-proof-of-sql.git
+cd sxt-proof-of-sql
 ````
 
 https://github.com/spaceandtimelabs/sxt-proof-of-sql
@@ -53,7 +55,7 @@ Each submission will be reviewed by our maintainers for validity, impact, and or
 
 Important Links
 
-Main Proof of SQL Repository: [spaceandtimelabs/sxt-proof-of-sql](https://github.com/spaceandtimelabs/sxt-proof-of-sql)
+Main Proof of SQL Repository: [spaceandtimelabs/sxt-proof-of-sql]((https://github.com/spaceandtimelabs/sxt-proof-of-sql)
 
 
 Bounty Repository: [SxTSimoneHaddad/ProofofSQLBounty](https://github.com/SxTSimoneHaddad/ProofofSQLBounty)
