@@ -1,0 +1,37 @@
+name: Sync GitHub Issues to Jira
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  sync-to-jira:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install jq
+      run: sudo apt-get install jq -y
+
+    - name: Send issue to Jira
+      env:
+        JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+        JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+        JIRA_URL: ${{ secrets.JIRA_URL }}
+      run: |
+        # Extracting GitHub issue details
+        issue_title="${{ github.event.issue.title }}"
+        issue_body="${{ github.event.issue.body }}"
+        issue_url="${{ github.event.issue.html_url }}"
+
+        data=$(jq -n \
+          --arg summary "$issue_title" \
+          --arg description "**GitHub Issue**: [$issue_url]\n\n **Description**:\n$issue_body\n\n**Context**: This issue has been automatically synced from GitHub. Refer to the GitHub issue link for updates." \
+          --arg project "PSPI" \
+          --arg issuetype "Epic" \
+          '{fields: {summary: $summary, description: $description, project: {key: $project}, issuetype: {name: $issuetype}}}')
+
+        curl -s -o response.json -w "%{http_code}" \
+          -u "$JIRA_EMAIL:$JIRA_API_TOKEN" \
+          -X POST \
+          -H "Content-Type: application/json" \
+          --data "$data" \
+          "$JIRA_URL/rest/api/2/issue/" | tee >(grep -q "201" && echo "Issue created successfully." || cat response.json)
