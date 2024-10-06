@@ -50,6 +50,11 @@ Review Process
 Each submission will be reviewed by our maintainers for validity, impact, and originality. Feedback will be provided through the Issues section, and successful bounty reports will be eligible for rewards as per our reward structure.
 
 Important Links
+
 Main Proof of SQL Repository: spaceandtimelabs/sxt-proof-of-sql
+
+
 Bounty Repository: SxTSimoneHaddad/ProofofSQLBounty
+
+
 GitHub Community Guidelines: GitHub Community Guidelines
