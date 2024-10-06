@@ -1,4 +1,6 @@
 Proof of SQL Bounty Program
+
+
 Welcome to the Proof of SQL Bounty Program! This bounty is designed to improve the performance, efficiency, and overall security of the Proof of SQL repository. We are inviting the community to identify any issues, optimize queries, or suggest improvements that will help enhance the project. Participants who successfully find and report bugs or performance improvements may be eligible for rewards.
 
 Bounty Program Overview
