@@ -25,9 +25,9 @@ Fork the Repository: Start by forking the main Proof of SQL Bounty repository to
 Clone Your Fork Locally: Clone the forked repository to your local machine for analysis.
 
 ````
-git clone https://github.com/YOUR_USERNAME/ProofofSQLBounty.git
-cd ProofofSQLBounty
+[git clone https://github.com/YOUR_USERNAME/ProofofSQLBounty.git](https://github.com/spaceandtimelabs/sxt-proof-of-sql)
 ````
+
 Identify and Document the Issue: Carefully examine the Proof of SQL repository to find bugs, inefficiencies, or areas for improvement. Provide detailed explanations, code snippets, and reasoning in your report.
 
 Create a New Issue:
@@ -51,10 +51,7 @@ Each submission will be reviewed by our maintainers for validity, impact, and or
 
 Important Links
 
-Main Proof of SQL Repository: spaceandtimelabs/sxt-proof-of-sql
+Main Proof of SQL Repository: [spaceandtimelabs/sxt-proof-of-sql](https://github.com/spaceandtimelabs/sxt-proof-of-sql)
 
 
-Bounty Repository: SxTSimoneHaddad/ProofofSQLBounty
-
-
-GitHub Community Guidelines: GitHub Community Guidelines
+Bounty Repository: [SxTSimoneHaddad/ProofofSQLBounty](https://github.com/SxTSimoneHaddad/ProofofSQLBounty)
