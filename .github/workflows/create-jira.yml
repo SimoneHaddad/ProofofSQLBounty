@@ -17,21 +17,28 @@ jobs:
         JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
         JIRA_URL: ${{ secrets.JIRA_URL }}
       run: |
-        # Extracting GitHub issue details
+
         issue_title="${{ github.event.issue.title }}"
         issue_body="${{ github.event.issue.body }}"
         issue_url="${{ github.event.issue.html_url }}"
+        issue_number="${{ github.event.issue.number }}"
 
         data=$(jq -n \
           --arg summary "$issue_title" \
           --arg description "GitHub Issue Number: $issue_number" \
-          --arg project "PSPI" \
+          --arg project "IT" \
           --arg issuetype "Epic" \
           '{fields: {summary: $summary, description: $description, project: {key: $project}, issuetype: {name: $issuetype}}}')
 
-        curl -s -o response.json -w "%{http_code}" \
+        response=$(curl -s -o response.json -w "%{http_code}" \
           -u "$JIRA_EMAIL:$JIRA_API_TOKEN" \
           -X POST \
           -H "Content-Type: application/json" \
           --data "$data" \
-          "$JIRA_URL/rest/api/2/issue/" | tee >(grep -q "201" && echo "Issue created successfully." || cat response.json)
+          "$JIRA_URL/rest/api/2/issue/")
+
+        jira_issue_key=$(jq -r '.key' < response.json)
+
+        echo "::set-output name=jira_issue_key::$jira_issue_key"
+
+        echo "Jira issue created with key: $jira_issue_key"
