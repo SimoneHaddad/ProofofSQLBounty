@@ -25,7 +25,7 @@ jobs:
 
         data=$(jq -n \
           --arg summary "$issue_title" \
-          --arg description "GitHub Issue Number: $issue_number" \
+          --arg description "GitHub Issue URL: [$issue_url]" \
           --arg project "IT" \
           --arg issuetype "Epic" \
           '{fields: {summary: $summary, description: $description, project: {key: $project}, issuetype: {name: $issuetype}}}')
@@ -36,7 +36,7 @@ jobs:
           -H "Content-Type: application/json" \
           --data "$data" \
           "$JIRA_URL/rest/api/2/issue/")
-
+        cat response.json
         jira_issue_key=$(jq -r '.key' < response.json)
 
         echo "::set-output name=jira_issue_key::$jira_issue_key"
