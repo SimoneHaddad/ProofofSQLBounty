@@ -24,7 +24,7 @@ jobs:
 
         data=$(jq -n \
           --arg summary "$issue_title" \
-          --arg description "**GitHub Issue**: [$issue_url] **Description**: $issue_body **Context**: This issue has been automatically synced from GitHub. Refer to the GitHub issue link for updates." \
+          --arg description "GitHub Issue Number: $issue_number" \
           --arg project "PSPI" \
           --arg issuetype "Epic" \
           '{fields: {summary: $summary, description: $description, project: {key: $project}, issuetype: {name: $issuetype}}}')
